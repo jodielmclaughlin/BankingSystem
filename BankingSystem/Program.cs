@@ -9,7 +9,12 @@
             Console.WriteLine("Account number: " + newAccount.AccountNumber);
             Console.WriteLine("Account owner: " + newAccount.OwnerName);
             Console.WriteLine("Account balance: " + newAccount.Balance);
-
+            newAccount.DepositMoney(50);
+            Console.WriteLine("Account balance: " + newAccount.Balance);
+            newAccount.WithdrawMoney(120);
+            Console.WriteLine("Account balance: " + newAccount.Balance);
         }
+
+       
     }
 }

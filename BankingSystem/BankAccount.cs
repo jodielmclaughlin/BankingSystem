@@ -10,13 +10,34 @@ namespace BankingSystem
     {
         public int AccountNumber { get; }
         public string OwnerName { get; }
-        public int Balance { get; }
+        public int Balance { get; set; }
+        public int AgreedOverdraft { get; set; }
 
         public BankAccount(int accountNumber, string ownerName, int balance)
         {
             AccountNumber = accountNumber;
             OwnerName = ownerName;
             Balance = balance;
+            AgreedOverdraft = 50;
+        }
+
+        public void DepositMoney(int amount)
+        {
+            Balance += amount;
+        }
+
+        public void WithdrawMoney(int amount)
+        {
+            
+            if (Balance - amount < -AgreedOverdraft)
+            {
+                Console.WriteLine("Insufficient Funds");
+            }
+            else
+            {
+                Balance -= amount;
+                
+            }
         }
 
     }
